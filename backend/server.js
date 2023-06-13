@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv'
 dotenv.config()
-const PORT = process.env.PORT || 3500
+const PORT = process.env.PORT || 5000
 
 // import config files
 import {corsOptions} from './config/corsOptions.js'
@@ -25,6 +25,16 @@ app.use(express.json())
 app.use(cookieParser())
 
 // Routers
+import postRoutes from './routes/posts.js'
+
+
+
+
+
+app.use('/posts', postRoutes)
+
+
+
 app.get('/', (req, res) => {
     res.json({'message': 'Hi you are accessing the home page'})
 })
